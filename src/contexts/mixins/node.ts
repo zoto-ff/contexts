@@ -602,23 +602,16 @@ class NodeMixin<Bot extends BotLike> {
 	// 	});
 	// }
 
-	// /** @deprecated use `delete()` instead */
-	// deleteMessage(
-	// 	params?: Optional<Params.DeleteMessageParams, "chat_id" | "message_id">,
-	// ) {
-	// 	return this.delete(params);
-	// }
-
-	// /** Deletes current message */
-	// delete(
-	// 	params: Optional<Params.DeleteMessageParams, "chat_id" | "message_id"> = {},
-	// ) {
-	// 	return this.bot.api.deleteMessage({
-	// 		chat_id: this.chatId || this.senderId || 0,
-	// 		message_id: this.id,
-	// 		...params,
-	// 	});
-	// }
+	 /** Deletes current message */
+	delete(
+	    params: Optional<Params.DeleteMessageParams, "chat_id" | "message_id"> = {},
+	) {
+	 	return this.bot.api.deleteMessage({
+	 		chat_id: this.chatId || this.senderId || 0,
+	 		message_id: this.id,
+			...params,
+		});
+	}
 
 	/** Edits current message live location */
 	async editMessageLiveLocation(
